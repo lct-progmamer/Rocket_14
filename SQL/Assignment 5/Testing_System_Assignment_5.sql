@@ -76,11 +76,13 @@ CREATE VIEW HU AS
 -- CÂU 5  : Tạo view có chứa tất các các câu hỏi do user họ Nguyễn tạo
 
 
-SELECT b.QuestionID,b.Content,a.FullName
-FROM
-	`Account` a
-LEFT JOIN Question b
-ON a.AccountID = b.CreatorID
-WHERE a.AccountID IN (SELECT AccountID FROM `Account` WHERE FullName LIKE '%Nguyen' OR FullName LIKE 'Nguyen%');
+DROP VIEW IF EXISTS HE;
+CREATE VIEW HE AS
+	SELECT b.QuestionID,b.Content,a.FullName
+	FROM
+		`Account` a
+	LEFT JOIN Question b
+	ON a.AccountID = b.CreatorID
+	WHERE a.AccountID IN (SELECT AccountID FROM `Account` WHERE FullName LIKE '%Nguyen' OR FullName LIKE 'Nguyen%');
 
 
