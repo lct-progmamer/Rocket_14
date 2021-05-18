@@ -58,19 +58,18 @@ FROM
 	salesorderheader a
 	LEFT JOIN salesperson b ON a.SalesPersonID = b.SalesPersonID;
 
+
 -- CÂU 7 :Sử dụng câu query ở question 3, thêm cột JobTitle and xóa cột SalesPersonID và BusinessEntityID.
-ALTER TABLE salesperson ADD COLUMN JobTitle VARCHAR ( 50 );
-UPDATE salesperson 
-SET JobTitle = 'Sales Representative' 
-WHERE
-	JobTitle IS NULL;
-SELECT
-	b.SalesOrderID,
-	b.OrderDate,
-	c.Title AS JobTitle,
-	a.Bonus,
-	a.SalesYTD 
-FROM
-	salesperson a
-	LEFT JOIN salesorderheader b ON a.SalesPersonID = b.SalesPersonID
-	LEFT JOIN employee c ON a.SalesPersonID = c.EmployeeID;
+
+
+	ALTER TABLE salesperson DROP JobTitle;
+	
+	ALTER TABLE salesperson ADD COLUMN JobTitle VARCHAR(50) NOT NULL;
+	
+	UPDATE  salesperson
+	SET JobTitle = 'Sales Representative'
+	WHERE JobTitle IS NOT NULL;
+
+	
+	
+	
