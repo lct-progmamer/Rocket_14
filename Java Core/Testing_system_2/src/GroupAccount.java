@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class GroupAccount {
-	Group group;
+	Group[] groups;
 	Account[] accounts;
 	Date joinDate;
 	

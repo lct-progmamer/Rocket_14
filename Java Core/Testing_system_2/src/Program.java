@@ -202,13 +202,7 @@ public class Program {
 //		ex3_question4(exam1);
 	//question5:
 //		ex3_question5(exam1);
-	//exercise6:
-	// question1
-//		ex6_question1();
-	// question2:
-//		ex6_question2(accounts);
-	//question3:
-//		ex6_question3();
+
 	// exercise 4
 	//question1
 //		ex4_question1();
@@ -220,6 +214,10 @@ public class Program {
 //		ex4_question4();
 	//question5
 //		ex4_question5();
+// question6:
+//		ex4_question6();
+	//question 7:
+//		ex4_question7();
 		
 		
 	//exercise 5:
@@ -238,13 +236,21 @@ public class Program {
 	//question 7:
 //		ex5_question7();
 	//question 8 : 
-		ex5_question8();
-			
+//		ex5_question8();
+	// question9
+		ex5_question9();
 		
+		//exercise6:
+		// question1
+//			ex6_question1();
+		// question2:
+//			ex6_question2(accounts);
+		//question3:
+//			ex6_question3();
 
+		
+//		exam();
 
-		
-		
 		
 		
 	}
@@ -584,6 +590,9 @@ public class Program {
 		} while(i<=20);
 	}
 
+	
+	
+	// exercise 2
 	public static void ex2_question1()
 	{
 		int a = 5;
@@ -636,6 +645,9 @@ public class Program {
 		
 	}
 	
+	
+	
+	//exercise 2
 	public static void ex3_question1(Exam a) {
 		
 		System.out.println("ID : " + a.id);
@@ -659,72 +671,26 @@ public class Program {
 	public static void ex3_question3(Exam a)
 	{
 		
-		Date date = a.createDate;
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		System.out.println("Năm : " + calendar.get(calendar.YEAR));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+		System.out.println("Năm : " + sdf.format(a.createDate));
 	}
 
 	public static void ex3_question4(Exam a)
 	{
-		Date date = a.createDate;
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		System.out.print( calendar.get(calendar.MONTH)+1);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+		System.out.print("  " + sdf.format(a.createDate));
+		
 	}
 
 	public static void ex3_question5(Exam a)
 	{
-		Date date = a.createDate;
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		int a1 = calendar.get(calendar.MONTH) + 1;
-		System.out.print( "MM : "+ a1 +" DD : "+ calendar.DAY_OF_MONTH);
+		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
+		System.out.print("  " + sdf.format(a.createDate));
 	}
 
-	public static void ex6_question1() {
-		for(int i = 1;i<10;i++)
-		{
-			if(i%2==0)
-				System.out.print(i + " ");
-		}
-	}
-
-	public static void ex6_question2(Account[] accounts)
-	{
-		int i = 1;
-		for (Account point : accounts)
-		{
-			System.out.println("Account thứ " + i + " là : ");
-			System.out.println("Account ID : " + point.id);
-			System.out.println("Email : " + point.email);
-			System.out.println("Fullname : " + point.fullName);
-			System.out.println("UserName : " + point.userName);
-			System.out.println("Create Date : " + point.createDate);
-			System.out.println("Position  : " + point.position.name);
-			System.out.println("Department : " + point.department.name);
-			System.out.print("Group : ");
-			if(point.groups == null)
-			{
-				System.out.print("Account chưa tham gia group nào !");
-			}
-			else
-			{
-				for(Group S_point : point.groups)
-				{
-					System.out.print(S_point.name + " , ");
-				}
-			}
-			System.out.println("\n");
-			i++;
-		}
-	}
-
-	public static void ex6_question3() {
-		for(int i=1;i<10;i++)
-			System.out.print(i + " ");
-	}
 	
+	
+	//exercise 4
 	public static void ex4_question1()
 	{
 		Random random = new Random();
@@ -741,10 +707,10 @@ public class Program {
 
 	public static void ex4_question3()
 	{
-		int[] a = {1,2,3,4};
+		String[] a = {"An","Đạt","Hải","Nam","Thảo","Quân"," Vũ"};
 		Random b = new Random();
-		int c = b.nextInt();
-		System.out.println("Chọn ngẫu nhiên được bạn " + c);
+		int c = b.nextInt(a.length);
+		System.out.println("Chọn ngẫu nhiên được bạn " + a[c]);
 	}
 
 	public static void ex4_question4()
@@ -760,9 +726,33 @@ public class Program {
 
 	public static void ex4_question5()
 	{
-		System.out.print(LocalDate.now());
+		// time hiện tại
+		int limitedDay = (int) LocalDate.now().toEpochDay();
+		Random random = new Random();
+		
+		int randomDay =limitedDay - random.nextInt(365);
+		LocalDate result = LocalDate.ofEpochDay(randomDay);
+		System.out.print(result);
+	}
+
+	public static void ex4_question6()
+	{
+		int maxday = (int) LocalDate.now().toEpochDay();
+		Random random = new Random();
+		long randomday = random.nextInt(maxday);
+		LocalDate result = LocalDate.ofEpochDay(randomday);
+		System.out.print(result);
 	}
 	
+	public static void ex4_question7()
+	{
+		Random random = new Random();
+		int x = random.nextInt((999-100+1)-100);
+		System.out.print("Ngẫu nhiên được : " + x);
+	}
+	
+	
+	//exercise 5
 	public static void ex5_question1()
 	{
 		Scanner scanner = new Scanner(System.in);
@@ -819,8 +809,11 @@ public class Program {
 	public static void ex5_question5()
 	{
 		Position new_position = new Position();
+		
 		Scanner a = new Scanner(System.in);
+		
 		Account new_account = new Account();
+		
 		System.out.print("Nhập Gmail : ");
 		new_account.email = a.next();
 		System.out.print("Nhập UserName : ");
@@ -848,8 +841,8 @@ public class Program {
 		System.out.println("Email : " + new_account.email);
 		System.out.println("Fullname : " + new_account.fullName);
 		System.out.println("UserName : " + new_account.userName);
-		System.out.println("UserName : " + new_account.position.id);
-		System.out.println("Position  : " +new_account.position.name);
+		System.out.println("position_id : " + new_account.position.id);
+		System.out.println("Position_name  : " +new_account.position.name);
 //		System.out.println("Department : " + departmentName);
 		a.close();
 		
@@ -910,8 +903,208 @@ public class Program {
 		a.close();
 	}
 	
-	public static void ex5_question9(Account[] accounts , Group[] groups)
+	
+	
+	
+	public static void ex5_question9()
 	{
+		// tao group
+		Group group1 = new Group();
+		group1.id = 1;
+		group1.name = "football";
+		group1.createDate = new Date("2020/3/4");
 		
+		Group group2 = new Group();
+		group2.id = 2;
+		group2.name = "music";
+		group2.createDate = new Date("2021/13/4");
+		
+		Account account1 = new Account();
+		account1.id = 1;
+		account1.userName = "abc1";
+		account1.fullName = "Nguyen Van A";
+		account1.email = "abc_A@gmail.com";
+		account1.createDate = new Date("2019/6/7");
+		
+		Account account2 = new Account();
+		account2.id = 2;
+		account2.userName = "abc2";
+		account2.fullName = "Nguyen Van B";
+		account2.email = "abc_B@gmail.com";
+		account2.createDate = new Date("2020/6/12"); 
+		Account[] accounts = new Account[] {account1, account2};
+		Group group3 = new Group();
+		group3.id = 3;
+		group3.name = "dance";
+		group3.createDate = new Date("2019/7/5");
+		group3.accounts = accounts;
+		
+		Group[] groups = new Group[] {group1 , group2 , group3};
+		// tao account
+		
+		Group[] groups1 = new Group[] {group1 , group2};
+		
+		Account account3 = new Account();
+		account3.id = 3;
+		account3.userName = "abc3";
+		account3.fullName = "Nguyen Van C";
+		account3.groups = groups1;
+		account3.email = "abc_C@gmail.com";
+		account3.createDate = new Date("2018/4/17");
+		
+		Account[] Accounts = new Account[] {account1 , account2 , account3};
+	
+		
+		// bước 1
+		System.out.println("User in System : " );
+		
+		for(Account point : Accounts)
+		{
+			System.out.print(point.userName + "\t");
+		}
+		// bước 2
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("\ninput your username : ");
+		String input_username = scanner.next();
+		
+		// temp : vị trí của account có tên vừa nhập
+		
+		int temp_un = -1;
+		for (int i = 0; i < Accounts.length; i++) 
+		{
+			if(input_username.equals(Accounts[i].userName))
+			{
+				temp_un = i;
+			}
+		}
+		// bước 3
+		System.out.println("Group in System : ");
+		for(Group point : groups)
+		{
+			System.out.print(point.name+"\t");
+		}
+		
+		// bước 4
+		System.out.print("\ninput Group name : ");
+		String input_group = scanner.next();
+		
+		int temp_gr = -1;
+		for (int i = 0; i < groups.length; i++) 
+		{	
+			if(groups[i].name.equals(input_group))
+			{
+				
+				temp_gr = i;
+			}	
+		}
+		if(temp_un <0 || temp_gr <0)
+		{
+			System.out.println("Username or Group don't exist");
+			return;
+		}
+		// bước 5 
+//		groups[temp_gr].accounts = new Account[] {Accounts[temp_un]};
+		
+		Group[] old_group = Accounts[temp_un].groups;
+//		  
+		
+		Group[] new_group = new Group[old_group.length + 1];
+		for (int i = 0; i < old_group.length; i++) {
+			new_group[i] = old_group[i];
+		}
+		new_group[old_group.length] =  groups[temp_gr];
+		
+		Accounts[temp_un].groups = new_group;
+		
+		Account[] old_account = groups[temp_gr].accounts;
+		Account[] new_account = new Account[old_account.length + 1];
+		for (int i = 0; i < old_account.length; i++) {
+			new_account[i] = old_account[i]; 
+		}
+		new_account[old_account.length] = Accounts[temp_un];
+		
+		groups[temp_gr].accounts = new_account;
+		for (int i = 0; i < Accounts[temp_un].groups.length; i++) {
+			System.out.println("groups : " + Accounts[temp_un].groups[i].name + "\t");
+		}
+}
+	
+
+
+	//exercise 6
+	public static void ex6_question1() {
+		for(int i = 1;i<10;i++)
+		{
+			if(i%2==0)
+				System.out.print(i + " ");
+		}
 	}
+
+	public static void ex6_question2(Account[] accounts)
+	{
+		int i = 1;
+		for (Account point : accounts)
+		{
+			System.out.println("Account thứ " + i + " là : ");
+			System.out.println("Account ID : " + point.id);
+			System.out.println("Email : " + point.email);
+			System.out.println("Fullname : " + point.fullName);
+			System.out.println("UserName : " + point.userName);
+			System.out.println("Create Date : " + point.createDate);
+			System.out.println("Position  : " + point.position.name);
+			System.out.println("Department : " + point.department.name);
+			System.out.print("Group : ");
+			if(point.groups == null)
+			{
+				System.out.print("Account chưa tham gia group nào !");
+			}
+			else
+			{
+				for(Group S_point : point.groups)
+				{
+					System.out.print(S_point.name + " , ");
+				}
+			}
+			System.out.println("\n");
+			i++;
+		}
+	}
+
+	public static void ex6_question3() {
+		for(int i=1;i<10;i++)
+			System.out.print(i + " ");
+	}
+	
+	public static int dem_sla(int a1)
+	{
+		int dem = 0;
+		do
+		{
+			a1=a1/10;
+			dem++;
+		}while(a1!=0);
+		return dem;
+	}
+	public static void exam()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("input a = ");
+		int a = scanner.nextInt();
+		float b = (float)dem_sla(a);
+		if(b == 1)
+			System.out.printf("%.4f",(float)a);
+		else if(b == 2)
+			System.out.printf("%.3f",(float)a);
+		else if(b == 3)
+			System.out.printf("%.2f",(float)a);
+		else if(b == 4)
+			System.out.printf("%.1f",(float)a);
+		else if(b == 5)
+			System.out.printf("%.f",(float)a);
+		else
+			System.out.println("Nhap số chỉ có 5 chữ số trở xuống ");
+		scanner.close();
+	}
+
+
 }
