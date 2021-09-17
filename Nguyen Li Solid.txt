@@ -1,0 +1,13 @@
+- Dependency Inversion
+ + Nguyên lí thiết kế project , dựa trên nguyên lí thiết kế Solid
+
+- Inversion Of Control
+ + đảo ngược luồng điều khiển
+ + đây là một design pattern , được tạo để tuân thủ nguyên lí thiết kế
+dependency inversion
+ + 
+
+
+- Dependency Injection: một số các môi trường để thực thi mô hình 
+thiết kế IOC (Inversion Of Control) như DI Container , Spring IOC Container.
+ +  
