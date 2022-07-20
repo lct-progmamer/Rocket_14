@@ -1,0 +1,12 @@
+- khái niệm Stateless : 
+	+ là kiểu thiết kế để lưu thông tin của Client
+	+ Tất cả thông tin sẽ được lưu ở dưới Client, khi nào cần thiết sẽ gửi thông tin
+	  kèm request lên server.
+	+  Có nghĩa là sau khi client gửi dữ liệu lên server, server thực thi xong,
+	  trả kết quả thì “quan hệ” giữa client và server bị “cắt đứt” – server không lưu bất cứ dữ liệu gì của client.
+
+- khái niệm của stateFul
+	+ Stateful là một design ngược với stateless, server cần lưu dữ liệu của client,
+	 điều đó đồng nghĩa với việc ràng buộc giữa client và server vẫn được giữ sau mỗi request (yêu cầu) của client.
+	 Data được lưu lại phía server có thể làm đầu vào (input parameters) cho lần kế tiếp,
+	 hoặc là dữ kiện dùng trong quá trình xử lý hay phục vụ cho bất cứ nhu cầu nào phụ thuộc vào bussiness (nghiệp vụ) cài đặt.

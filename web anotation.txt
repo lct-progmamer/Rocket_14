@@ -1,6 +1,5 @@
 - controller : thuộc công nghệ cũ, trả ra 1 trang web
 - Restcontroller : công nghệ mới, chỉ trả ra API cho fronted  xử lí
-
 - RestMapping : gồm post , get , delete, put
 - PathVariable : có required nếu = false thì ko cần truyền vào cũng được
 - request parameter : dùng dâu ? để truyền dữ liệu vào , có trường defaultValue

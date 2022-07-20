@@ -1,0 +1,37 @@
+- link tham khảo : https://gpcoder.com/4190-huong-dan-java-design-pattern-singleton
+
+- Singleton là 1 trong 5 design pattern của nhóm Creational Design pattern
+
+- đây là 1 design pattern đảm bảo chỉ duy nhất 1 thể hiện (instance của 1 object ) nào đó được tạo ra 
+và nó sẽ cung cáp cho bạn một method để có thể truy xuất được thể hiện duy nhất đó mọi lúc mọi nơi trong chương trình
+
+- Sử dụng Singleton khi chúng ta muốn : 
+ + đảm bảo ràng chỉ có 1 instance của class
+ + Việc quản lí việc truy cập tốt hơn vì chỉ có một instance duy nhất
+ + có thể quản lí số lượng instance của 1 class trong giới hạn chỉ dịnh
+
+
+- có 3 cách chính để có thể implement được Singleton Pattern
+ +  private constructor để hạn chất truy cập từ class bên ngoài
+ + đặt private static final <biến> đảm bảo biến chỉ được khởi tạo trong class
+ + có 1 method public static để return instace được khởi tạo ở trên.
+
+
+- có các kiểu implement Singleton design pattern
+ + Eager initialization
+ + static block initialization
+ + lazy initialization (kiểu mà hibernateUtils sử dụng để getIntance() của vti)
+ + Thread safe Singleton
+ + Double check locking Singleton
+ + Bill pugh Singleton Implementation
+ + Phá vỡ cấu trúc Singleton Pattern bằng Reflection
+ + Enum Singleton (khi sử dụng enum thì các instance chỉ được khởi tạo 1 lần)
+	
+ + Serialization and Singleton
+
+
+==> Có rất nhiều cách implement cho Singleton, mình thường sử dụng BillPughSingleton vì có hiệu suất cao,
+ sử dụng LazyInitializedSingleton cho những ứng dụng chỉ làm việc với ứng dụng single-thread 
+và sử dụng DoubleCheckLockingSingleton khi làm việc với ứng dụng multi-thread. 
+
+

@@ -91,7 +91,7 @@ CREATE TABLE Answer(
     Content					NVARCHAR(100) NOT NULL,
     QuestionID				TINYINT UNSIGNED NOT NULL,
     isCorrect				BIT DEFAULT 1,
-    FOREIGN KEY(QuestionID) REFERENCES Question(QuestionID)
+    FOREIGN KEY(QuestionID) 	 Question(QuestionID)
 );
 
 -- create table 10: Exam
@@ -112,7 +112,7 @@ CREATE TABLE Exam(
 DROP TABLE IF EXISTS ExamQuestion;
 CREATE TABLE ExamQuestion(
     ExamID				TINYINT UNSIGNED NOT NULL,
-		QuestionID			TINYINT UNSIGNED NOT NULL,
+	QuestionID			TINYINT UNSIGNED NOT NULL,
     FOREIGN KEY(QuestionID) REFERENCES Question(QuestionID),
     FOREIGN KEY(ExamID) REFERENCES Exam(ExamID) ,
     PRIMARY KEY (ExamID,QuestionID)

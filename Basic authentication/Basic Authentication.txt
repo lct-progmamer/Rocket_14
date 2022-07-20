@@ -1,0 +1,4 @@
+
+ - basic authentication là 1 kiểu thiết kế login theo stateless , nghĩa là ko lưu thông tin gì ở server.
+ 	+ mỗi khi sử dụng 1 request gì , thì sẽ cần filter lại login 1 lần.
+ 	+  
